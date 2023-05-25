@@ -1,0 +1,84 @@
+.help-widget {
+  &-content {
+    button {
+      &:focus,
+      &:focus-visible,
+      &:focus-within {
+        outline: 0;
+      }
+    }    
+  }
+  &-logo {
+    &:focus,
+    &:focus-visible,
+    &:focus-within {
+      outline: 0;
+    }
+    .active-close {
+      font-size: $font-size + .65rem;
+      color: $white;
+    }
+  }
+  &-close-btn {
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+    background-color: rgba($black, 0);
+    border-color: rgba($black, 0);
+    color: $gray;
+    top: 26px;
+    font-size: 1.45rem;
+    filter: invert(1);
+  }
+  &-btn-group {
+    flex-direction: column;
+    display: flex;
+    margin-top: 1rem;
+    button,
+    a {
+      font-weight: bold; 
+      font-size: $font-size; 
+      border: 1px solid $gray; 
+      color: $gray; 
+      background-color: $white; 
+      border-radius: 8px; 
+      margin-bottom: 0.5rem; 
+      text-align: center;
+      line-height: 28px;
+      text-decoration: none;
+      padding: 8px 30px 8px 8px;
+      text-transform: initial;
+      &:hover,
+      &:focus,
+      &:focus-visible,
+      &:focus-within {
+        background-color: $primary;
+        border-color: $primary;
+        color: $white;
+        img {
+          filter: invert(1);
+        }
+      }
+      &:active {
+        box-shadow: inset 5px 5px 10px 0 darken($primary, 10%), inset 0 0 100px 0 darken($primary, 10%);
+      }  
+      img {
+        position: relative;
+        float: left;
+        height: 23px;
+        bottom: -2px;
+        filter: invert(42%) sepia(0%) saturate(1604%) hue-rotate(200deg) brightness(92%) contrast(104%);
+      }
+    }
+  }
+  &-chat-btn {
+    cursor: pointer;
+    background-color: $red;
+    border-color: $red;
+    color: $white;
+    position: fixed;
+    height: 26px;
+    top: 104px;
+    right: 20px;
+  }
+}

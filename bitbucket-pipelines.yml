@@ -1,0 +1,25 @@
+pipelines:
+  tags:
+    v*:
+      - step:
+          name: Build App
+          image: node:18.12.1-bullseye-slim
+          caches:
+            - node
+          script:
+            - apt-get -y update
+            - apt-get -y install git
+            - npm install
+            - npm run build
+            - npm run build:lib
+          artifacts:
+            - build/**
+            - lib-build/**
+      - step:
+          name: Publish artifact to S3
+          image: atlassian/pipelines-awscli
+          script:
+            - aws --version
+            - aws configure set region us-east-1
+            - aws s3 sync build s3://helpwidget.ocoa.com --delete --exclude 'lib/*'
+            - aws s3 cp lib-build s3://helpwidget.ocoa.com/lib --recursive

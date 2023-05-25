@@ -1,0 +1,13 @@
+@import 'utilities/variables';
+
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+.#{$class-prefix} { 
+  @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+}
+
+@import 'base/reset.scss';
+
+@import 'components/widget';
+@import 'components/button';
+@import 'components/form'; 
